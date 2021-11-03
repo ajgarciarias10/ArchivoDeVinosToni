@@ -11,14 +11,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ieszv.ad.archivodevinostoni.data.Vino;
 import com.ieszv.ad.archivodevinostoni.util.Csv;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Adding extends AppCompatActivity {
     EditText textoNombre, textoId,textoColor,textoGraduacion,textoOrigen,Fecha,textoBodega;
     Button bt_add;
     public static String fileName="vino.csv";
+    public static ArrayList<Vino> listaVinos = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +31,7 @@ public class Adding extends AppCompatActivity {
         bt_add = findViewById(R.id.btadd);
 
 
-
+        readFile();
         bt_add.setOnClickListener((View v) ->{
             WriteIntheFile();
             Intent intencion = new Intent(Adding.this, MainActivity.class);
@@ -58,11 +62,23 @@ public class Adding extends AppCompatActivity {
         fecha = Integer.parseInt(Fecha.getText().toString());
         graduacion= Double.parseDouble(textoGraduacion.getText().toString());
 
+        if(!checkId(id,listaVinos)){
+            Vino v = new Vino(id,Nombre,Bodega,Color,Origen,graduacion,fecha);
+            String text = Csv.getCsv(v);
+            Vino v2 = Csv.getVino(text);
+            writeFile(getFilesDir(), text);
+        }
 
-        Vino v = new Vino(id,Nombre,Bodega,Color,Origen,graduacion,fecha);
-        String text = Csv.getCsv(v);
-        Vino v2 = Csv.getVino(text);
-        writeFile(getFilesDir(), text);
+    }
+    public static  boolean checkId(long id ,ArrayList<Vino>listaVinos){
+        boolean ok=false;
+        for (int i = 0; i < listaVinos.size(); i++) {
+            Long idtoCompare = listaVinos.get(i).getId();
+            if(idtoCompare.equals(id))
+                return ok =  true;
+        }
+        return ok;
+
     }
 
     public static boolean writeFile(File file, String string) {
@@ -80,4 +96,20 @@ public class Adding extends AppCompatActivity {
         }
         return ok;
     }
+    public boolean readFile(){
+        File f = new File(getFilesDir(), fileName);
+        boolean ok = true;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(f));
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                Adding.listaVinos.add((Vino) Csv.getVino(linea));
+            }
+            br.close();
+        } catch (Exception e){
+            ok = false;
+        }
+        return ok;
+    }
+
 }
