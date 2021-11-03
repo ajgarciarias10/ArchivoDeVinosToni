@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">ArchivoDeVinosToni</string>
+    <string name="tv_titulo">Lista De Vinos</string>
+    <string name="tv_lista" />
+    <string name="tv_pasaElId">ID</string>
+    <string name="bt_add">ADD</string>
+    <string name="bt_edit">EDIT</string>
+        <string name="hint_text">Write a text</string>
+        <string name="button_write_extern">Write Extern</string>
+        <string name="button_write_intern">Write intern</string>
+        <string name="button_read_extern">Read Extern</string>
+        <string name="button_read_intern">Read Intern</string>
+        <string name="message_ok">Value has been written</string>
+        <string name="message_no">Value has not been written</string>
+        <string name="read_ok">""File without content""</string>
+        <string name="read_no">File could not be read</string>
+        <string name="file_name">archivo.csv</string>
+    <string name="tv_nombre">Nombre</string>
+    <string name="tv_id">ID</string>
+    <string name="tv_bodega">Bodega</string>
+    <string name="tv_color">Color</string>
+    <string name="tv_origen">Origen</string>
+    <string name="tv_graduacion">Graduacion</string>
+    <string name="et_id">Escribeme Tu Id</string>
+    <string name="et_Nombre">Nombre</string>
+    <string name="et_bodega">Bodega</string>
+    <string name="et_color" />
+    <string name="et_origen" />
+    <string name="et_graduacion" />
+    <string name="et_fecha" />
+    <string name="filename">vino.csv</string>
+    <string name="tv_fecha">Fecha</string>
+</resources>
