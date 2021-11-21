@@ -5,216 +5,210 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="411dp"
+        android:layout_height="603dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/_413378_9dtwpso_0uc5n0ea9x42xpsssa96bctnll75bgzcdyw" />
+
     <TextView
-        android:id="@+id/tv_id"
-        android:layout_width="35dp"
-        android:layout_height="25dp"
-        android:fontFamily="sans-serif-smallcaps"
+        android:id="@+id/tv_idEdit"
+        style="@style/estilitoPato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
         android:text="@string/tv_id"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_nombre"
-        app:layout_constraintEnd_toStartOf="@+id/tv_id2"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/bt_edit2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="107dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="80dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="Edit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bt_delete2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_fecha" />
-
-    <Button
-        android:id="@+id/bt_delete2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="47dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="Delete"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_fecha" />
-
     <TextView
-        android:id="@+id/tv_nombre"
-        android:layout_width="78dp"
-        android:layout_height="33dp"
-        android:fontFamily="sans-serif-smallcaps"
+        android:id="@+id/tv_nombreEdit"
+        style="@style/estilitoPato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="27dp"
         android:text="@string/tv_nombre"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_Bodega"
-        app:layout_constraintEnd_toStartOf="@+id/et_nombre"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_id" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_idEdit" />
 
     <TextView
-        android:id="@+id/tv_Bodega"
+        android:id="@+id/tv_BodegaEdit"
+        style="@style/estilitoPato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="@string/tv_bodega"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_color"
-        app:layout_constraintEnd_toStartOf="@+id/et_bodega"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nombre" />
+        android:layout_marginTop="15dp"
+        android:text="@string/et_bodega"
+        app:layout_constraintStart_toStartOf="@+id/tv_nombreEdit"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nombreEdit" />
 
     <TextView
-        android:id="@+id/tv_color"
+        android:id="@+id/tv_ColorEdit"
+        style="@style/estilitoPato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
         android:text="@string/tv_color"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_origen"
-        app:layout_constraintEnd_toStartOf="@+id/et_color"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Bodega" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_BodegaEdit" />
 
     <TextView
-        android:id="@+id/tv_origen"
+        android:id="@+id/tv_OrigenEdit"
+        style="@style/estilitoPato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="31dp"
         android:text="@string/tv_origen"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_graduacion"
-        app:layout_constraintEnd_toStartOf="@+id/et_origen"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_color" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_GraduacionEdit" />
 
     <TextView
-        android:id="@+id/tv_graduacion"
+        android:id="@+id/tv_GraduacionEdit"
+        style="@style/estilitoPato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginTop="26dp"
         android:text="@string/tv_graduacion"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_fecha"
-        app:layout_constraintEnd_toStartOf="@+id/et_graduacion"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_origen" />
+        app:layout_constraintEnd_toEndOf="@+id/tv_FechaEdit"
+        app:layout_constraintStart_toEndOf="@+id/tv_FechaEdit"
+        app:layout_constraintTop_toBottomOf="@+id/tv_FechaEdit" />
 
     <TextView
-        android:id="@+id/tv_fecha"
+        android:id="@+id/tv_FechaEdit"
+        style="@style/estilitoPato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
         android:text="@string/tv_fecha"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/et_fecha"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_graduacion" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_ColorEdit" />
 
     <EditText
-        android:id="@+id/et_nombre"
+        android:id="@+id/et_idEdit"
+        style="@style/estilitoPato.editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="27dp"
+        android:editable="false"
         android:ems="10"
-        android:fontFamily="sans-serif-smallcaps"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/et_bodega"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tv_nombre"
-        app:layout_constraintTop_toBottomOf="@+id/tv_id2"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
-        android:importantForAutofill="no" />
-
-    <EditText
-        android:id="@+id/et_bodega"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:fontFamily="sans-serif-smallcaps"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/et_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tv_Bodega"
-        app:layout_constraintTop_toBottomOf="@+id/et_nombre"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-    <EditText
-        android:id="@+id/et_color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:fontFamily="sans-serif-smallcaps"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/et_origen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tv_color"
-        app:layout_constraintTop_toBottomOf="@+id/et_bodega"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-    <EditText
-        android:id="@+id/et_origen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:fontFamily="sans-serif-smallcaps"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/et_graduacion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tv_origen"
-        app:layout_constraintTop_toBottomOf="@+id/et_color"
-        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-    <EditText
-        android:id="@+id/et_graduacion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:fontFamily="sans-serif-smallcaps"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/et_fecha"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tv_graduacion"
-        app:layout_constraintTop_toBottomOf="@+id/et_origen"
-        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
-
-    <EditText
-        android:id="@+id/et_fecha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:fontFamily="sans-serif-smallcaps"
-        android:inputType="date"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tv_fecha"
-        app:layout_constraintTop_toBottomOf="@+id/et_graduacion"
-        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
-
-    <TextView
-        android:id="@+id/tv_id2"
-        android:layout_width="112dp"
-        android:layout_height="26dp"
-        android:fontFamily="sans-serif-condensed-light"
-        app:layout_constraintBottom_toTopOf="@+id/et_nombre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tv_id"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.52" />
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/et_NombreEdit"
+        style="@style/estilitoPato.editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="@string/et_Nombre"
+        app:layout_constraintBottom_toTopOf="@+id/et_BodegaEdit"
+        app:layout_constraintEnd_toEndOf="@+id/et_BodegaEdit" />
+
+    <EditText
+        android:id="@+id/et_BodegaEdit"
+        style="@style/estilitoPato.editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="50dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="@string/et_bodega"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_ColorEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_nombreEdit" />
+
+    <EditText
+        android:id="@+id/et_ColorEdit"
+        style="@style/estilitoPato.editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="@string/et_color"
+        app:layout_constraintStart_toStartOf="@+id/et_FechaEdit"
+        app:layout_constraintTop_toBottomOf="@+id/et_BodegaEdit" />
+
+    <EditText
+        android:id="@+id/et_OrigenEdit"
+        style="@style/estilitoPato.editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="@string/et_origen"
+        app:layout_constraintStart_toStartOf="@+id/et_GraduacionEdit"
+        app:layout_constraintTop_toBottomOf="@+id/et_GraduacionEdit" />
+
+    <EditText
+        android:id="@+id/et_GraduacionEdit"
+        style="@style/estilitoPato.editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="@string/et_graduacion"
+        app:layout_constraintStart_toStartOf="@+id/et_FechaEdit"
+        app:layout_constraintTop_toBottomOf="@+id/et_FechaEdit" />
+
+    <EditText
+        android:id="@+id/et_FechaEdit"
+        style="@style/estilitoPato.editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="28dp"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="@string/et_fecha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_ColorEdit"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <Button
+        android:id="@+id/bt_Rewrite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="97dp"
+        android:layout_marginBottom="1dp"
+        android:text="@string/bt_add"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/bt_Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="83dp"
+        android:layout_marginBottom="1dp"
+        android:text="@string/bt_delete"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,10 +24,11 @@
     <string name="et_id">Escribeme Tu Id</string>
     <string name="et_Nombre">Nombre</string>
     <string name="et_bodega">Bodega</string>
-    <string name="et_color" />
-    <string name="et_origen" />
-    <string name="et_graduacion" />
-    <string name="et_fecha" />
+    <string name="et_color">Color</string>
+    <string name="et_origen"> Origen</string>
+    <string name="et_graduacion">Graduacion </string>
+    <string name="et_fecha">Fecha</string>
     <string name="filename">vino.csv</string>
     <string name="tv_fecha">Fecha</string>
+    <string name="bt_delete">DELETE</string>
 </resources>
