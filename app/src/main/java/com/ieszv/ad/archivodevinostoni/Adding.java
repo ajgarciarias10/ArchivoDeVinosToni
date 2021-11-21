@@ -25,13 +25,7 @@ public class Adding extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
         Filing.readFileArrayList(getFilesDir());
-        bt_add.setOnClickListener((View v) ->{
-            WriteIntheFile();
-            Intent intencion = new Intent(Adding.this, MainActivity.class);
-            startActivity(intencion);
 
-
-        });
 
     }
 
@@ -44,6 +38,13 @@ public class Adding extends AppCompatActivity {
         textoGraduacion = findViewById(R.id.et_GraduacionAdd);
         textoOrigen = findViewById(R.id.et_OrigenAdd);
         Fecha = findViewById(R.id.et_FechaAdd);
+        bt_add.setOnClickListener((View v) ->{
+            WriteIntheFile();
+            Intent intencion = new Intent(Adding.this, MainActivity.class);
+            startActivity(intencion);
+
+
+        });
     }
 
 

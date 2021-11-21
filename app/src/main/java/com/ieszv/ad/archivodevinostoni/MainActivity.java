@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     EditText et_id;
     TextView tv_lista;
     private  long id;
-    String et;
     public static String fileName="vino.csv";
     public static ArrayList<Vino> listaVinos = new ArrayList<>();
 
@@ -55,12 +54,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initialize() {
-        bt_add = findViewById(R.id.bt_add2);
+        bt_add = findViewById(R.id.bt_add);
         bt_edit = findViewById(R.id.bt_edit);
         et_id= findViewById(R.id.et_id);
         tv_lista = findViewById(R.id.tv_Lista);
-         et = String.valueOf(et_id.getText());
-         id= Long.parseLong(et);
+        try {
+            id= Long.parseLong(et_id.getText().toString());
+        }catch (NumberFormatException e){
+
+        }
+
     }
 
 
