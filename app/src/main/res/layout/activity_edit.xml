@@ -101,7 +101,7 @@
         android:layout_marginEnd="27dp"
         android:editable="false"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -116,9 +116,9 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="@string/et_Nombre"
         app:layout_constraintBottom_toTopOf="@+id/et_BodegaEdit"
-        app:layout_constraintEnd_toEndOf="@+id/et_BodegaEdit" />
+        app:layout_constraintEnd_toEndOf="@+id/et_BodegaEdit"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/et_BodegaEdit"
@@ -131,10 +131,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="@string/et_bodega"
         app:layout_constraintBottom_toBottomOf="@+id/tv_ColorEdit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_nombreEdit" />
+        app:layout_constraintTop_toTopOf="@+id/tv_nombreEdit"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/et_ColorEdit"
@@ -145,9 +145,9 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="@string/et_color"
         app:layout_constraintStart_toStartOf="@+id/et_FechaEdit"
-        app:layout_constraintTop_toBottomOf="@+id/et_BodegaEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/et_BodegaEdit"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/et_OrigenEdit"
@@ -158,9 +158,9 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="@string/et_origen"
         app:layout_constraintStart_toStartOf="@+id/et_GraduacionEdit"
-        app:layout_constraintTop_toBottomOf="@+id/et_GraduacionEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/et_GraduacionEdit"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/et_GraduacionEdit"
@@ -171,9 +171,9 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="@string/et_graduacion"
         app:layout_constraintStart_toStartOf="@+id/et_FechaEdit"
-        app:layout_constraintTop_toBottomOf="@+id/et_FechaEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/et_FechaEdit"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/et_FechaEdit"
@@ -186,7 +186,6 @@
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="@string/et_fecha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_ColorEdit"
         tools:ignore="DuplicateSpeakableTextCheck" />

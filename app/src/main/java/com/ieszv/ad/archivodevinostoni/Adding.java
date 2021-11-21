@@ -1,6 +1,8 @@
 
 package com.ieszv.ad.archivodevinostoni;
 
+import static com.ieszv.ad.archivodevinostoni.R.id.et_GraduacionAdd;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,39 +18,38 @@ import java.util.ArrayList;
 
 public class Adding extends AppCompatActivity {
     EditText textoNombre, textoId,textoColor,textoGraduacion,textoOrigen,Fecha,textoBodega;
-    Button bt_add;
+    Button btadd;
     public static ArrayList<Vino> listaVinos = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        initialize();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
+        btadd = findViewById(R.id.bt_add2);
         Filing.readFileArrayList(getFilesDir());
-
-
-    }
-
-    private void initialize() {
-        bt_add = findViewById(R.id.bt_add2);
-        textoBodega = findViewById(R.id.et_bodegaAdd);
-        textoNombre = findViewById(R.id.et_NombreAdd);
-        textoId = findViewById(R.id.et_idAdd);
-        textoColor = findViewById(R.id.et_ColorAdd);
-        textoGraduacion = findViewById(R.id.et_GraduacionAdd);
-        textoOrigen = findViewById(R.id.et_OrigenAdd);
-        Fecha = findViewById(R.id.et_FechaAdd);
-        bt_add.setOnClickListener((View v) ->{
+        btadd.setOnClickListener((View v) ->{
             WriteIntheFile();
             Intent intencion = new Intent(Adding.this, MainActivity.class);
             startActivity(intencion);
 
 
         });
+
+
     }
 
 
+
     public void WriteIntheFile(){
+
+        textoBodega = findViewById(R.id.et_bodegaAdd);
+        textoNombre = findViewById(R.id.et_NombreAdd);
+        textoId = findViewById(R.id.et_idAdd);
+        textoColor = findViewById(R.id.et_ColorAdd);
+        textoGraduacion = findViewById(et_GraduacionAdd);
+        textoOrigen = findViewById(R.id.et_OrigenAdd);
+        Fecha = findViewById(R.id.et_FechaAdd);
+
         long id = Long.parseLong(String.valueOf(textoId.getText()));
         String bodega = String.valueOf(textoBodega.getText());
         String nombre = String.valueOf(textoNombre.getText());
@@ -59,7 +60,7 @@ public class Adding extends AppCompatActivity {
 
 
         if(Filing.checkId(id,listaVinos)){
-                Vino v = new Vino(id, nombre, bodega, color, origen, graduacion, fecha);
+                Vino v = new Vino(id, nombre, bodega, color, origen,graduacion , fecha);
                 String text = Csv.getCsv(v);
                 Filing.writeFile(getFilesDir(), text);
         }

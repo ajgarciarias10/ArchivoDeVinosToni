@@ -22,7 +22,15 @@ public class Edit extends AppCompatActivity {
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
-        initialize();
+
+        editTextId = findViewById(R.id.et_idEdit);
+        editTextNombre = findViewById(R.id.et_NombreEdit);
+        editTextBodega = findViewById(R.id.et_BodegaEdit);
+        editTextColor = findViewById(R.id.et_ColorEdit);
+        editTextOrigen = findViewById(R.id.et_OrigenEdit);
+        editTextGraduacion = findViewById(R.id.et_GraduacionEdit);
+        editTextFecha  = findViewById(R.id.et_FechaEdit);
+
 
         Bundle bundle = getIntent().getExtras();
         id =bundle.getLong("id");
@@ -57,16 +65,6 @@ public class Edit extends AppCompatActivity {
 
 }
 
-    private void initialize() {
-        editTextId = findViewById(R.id.et_idEdit);
-        editTextNombre = findViewById(R.id.et_NombreEdit);
-        editTextBodega = findViewById(R.id.et_BodegaEdit);
-        editTextColor = findViewById(R.id.et_ColorEdit);
-        editTextOrigen = findViewById(R.id.et_OrigenEdit);
-        editTextGraduacion = findViewById(R.id.et_GraduacionEdit);
-        editTextFecha  = findViewById(R.id.et_FechaEdit);
-
-    }
     public void writeontheEditText(long id,String idtv){
         Vino vino = Filing.buscaVino(id);
         editTextId.setText(idtv);

@@ -94,12 +94,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:minHeight="48dp"
-        android:text="@string/et_id"
         app:layout_constraintBottom_toTopOf="@+id/et_NombreAdd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/et_NombreAdd"
@@ -109,10 +110,11 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="@string/et_Nombre"
         app:layout_constraintBottom_toTopOf="@+id/et_bodegaAdd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_idAdd" />
+        app:layout_constraintTop_toBottomOf="@+id/et_idAdd"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/et_bodegaAdd"
@@ -122,10 +124,11 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="@string/et_bodega"
         app:layout_constraintBottom_toTopOf="@+id/et_ColorAdd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_NombreAdd" />
+        app:layout_constraintTop_toBottomOf="@+id/et_NombreAdd"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/et_ColorAdd"
@@ -135,10 +138,11 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="@string/et_color"
         app:layout_constraintBottom_toTopOf="@+id/et_OrigenAdd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_bodegaAdd" />
+        app:layout_constraintTop_toBottomOf="@+id/et_bodegaAdd"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/et_OrigenAdd"
@@ -148,10 +152,11 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="@string/et_origen"
         app:layout_constraintBottom_toTopOf="@+id/et_GraduacionAdd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_ColorAdd" />
+        app:layout_constraintTop_toBottomOf="@+id/et_ColorAdd"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/et_GraduacionAdd"
@@ -159,12 +164,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:minHeight="48dp"
-        android:text="@string/et_graduacion"
         app:layout_constraintBottom_toTopOf="@+id/et_FechaAdd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_OrigenAdd" />
+        app:layout_constraintTop_toBottomOf="@+id/et_OrigenAdd"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/et_FechaAdd"
@@ -172,14 +178,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:importantForAutofill="no"
+        android:inputType="date"
         android:minHeight="48dp"
-        android:text="@string/et_fecha"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_GraduacionAdd"
-        tools:ignore="DuplicateSpeakableTextCheck"
-        android:importantForAutofill="no" />
+        tools:ignore="DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/bt_add2"
