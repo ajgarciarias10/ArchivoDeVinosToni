@@ -54,9 +54,14 @@ public class Adding extends AppCompatActivity {
         String bodega = String.valueOf(textoBodega.getText());
         String nombre = String.valueOf(textoNombre.getText());
         String color = String.valueOf(textoColor.getText());
-        double graduacion = Double.parseDouble(String.valueOf(textoGraduacion));
-        String origen = String.valueOf(textoOrigen);
-        int fecha = Integer.parseInt(String.valueOf(Fecha));
+        double graduacion=0;
+        try {
+            graduacion = Double.parseDouble(String.valueOf(textoGraduacion.getText()));
+        }catch (NumberFormatException e){
+
+        }
+        String origen = String.valueOf(textoOrigen.getText());
+        int fecha = Integer.parseInt(String.valueOf(Fecha.getText()));
 
 
         if(Filing.checkId(id,listaVinos)){

@@ -5,17 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="411dp"
-        android:layout_height="603dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/_413378_9dtwpso_0uc5n0ea9x42xpsssa96bctnll75bgzcdyw" />
-
     <TextView
         android:id="@+id/tv_idEdit"
         style="@style/estilitoPato"
@@ -195,19 +184,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="97dp"
-        android:layout_marginBottom="1dp"
         android:text="@string/bt_add"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="554dp" />
 
     <Button
         android:id="@+id/bt_Delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="83dp"
-        android:layout_marginBottom="1dp"
         android:text="@string/bt_delete"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="554dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
