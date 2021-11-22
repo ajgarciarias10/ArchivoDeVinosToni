@@ -25,8 +25,8 @@ public class Adding extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
-        btadd = findViewById(R.id.bt_add2);
-        Filing.readFileArrayList(getFilesDir());
+        initialize();
+
         btadd.setOnClickListener((View v) ->{
             WriteIntheFile();
             Intent intencion = new Intent(Adding.this, MainActivity.class);
@@ -38,10 +38,8 @@ public class Adding extends AppCompatActivity {
 
     }
 
-
-
-    public void WriteIntheFile(){
-
+    private void initialize() {
+        btadd = findViewById(R.id.bt_add2);
         textoBodega = findViewById(R.id.et_bodegaAdd);
         textoNombre = findViewById(R.id.et_NombreAdd);
         textoId = findViewById(R.id.et_idAdd);
@@ -49,6 +47,10 @@ public class Adding extends AppCompatActivity {
         textoGraduacion = findViewById(et_GraduacionAdd);
         textoOrigen = findViewById(R.id.et_OrigenAdd);
         Fecha = findViewById(R.id.et_FechaAdd);
+    }
+
+
+    public void WriteIntheFile(){
 
         long id = Long.parseLong(String.valueOf(textoId.getText()));
         String bodega = String.valueOf(textoBodega.getText());
@@ -57,17 +59,21 @@ public class Adding extends AppCompatActivity {
         double graduacion=0;
         try {
             graduacion = Double.parseDouble(String.valueOf(textoGraduacion.getText()));
-        }catch (NumberFormatException e){
+        }catch (NumberFormatException ignored){
 
         }
         String origen = String.valueOf(textoOrigen.getText());
-        int fecha = Integer.parseInt(String.valueOf(Fecha.getText()));
+        int fecha = 0;
+        try {
+            fecha = Integer.parseInt(String.valueOf(Fecha.getText()));
+        }catch (NumberFormatException ignored){
 
-
+        }
         if(Filing.checkId(id,listaVinos)){
-                Vino v = new Vino(id, nombre, bodega, color, origen,graduacion , fecha);
-                String text = Csv.getCsv(v);
-                Filing.writeFile(getFilesDir(), text);
+            Vino v = new Vino(id, nombre, bodega, color, origen,graduacion , fecha);
+            String text = Csv.getCsv(v);
+            Filing.writeFile(getFilesDir(), text);
+            Filing.readFileToArrayList(getFilesDir());
         }
         else{
             textoId.setError("No puedes meter el mismo id");

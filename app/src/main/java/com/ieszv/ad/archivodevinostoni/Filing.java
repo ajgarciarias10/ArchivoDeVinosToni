@@ -15,7 +15,12 @@ import java.util.ArrayList;
 public class Filing {
     public static ArrayList<Vino> listaVinos = new ArrayList<>();
 
-
+    /**
+     * Metodo para Escribir un archivo
+     * @param file
+     * @param string
+     * @return
+     */
     public static boolean writeFile(File file, String string) {
         File f = new File(file, string);
         FileWriter fw;
@@ -31,13 +36,18 @@ public class Filing {
         }
         return ok;
     }
-    public static void readFileArrayList(File file){
+
+    /**
+     * LEE EL ARCHIVO Y LO PASA A UN ARRAY LIST
+     *
+     */
+    public static void readFileToArrayList(File file){
         File f = new File(file, fileName);
         try {
             BufferedReader br = new BufferedReader(new FileReader(f));
             String linea;
             while ((linea = br.readLine()) != null) {
-                listaVinos.add((Vino) Csv.getVino(linea));
+                listaVinos.add(Csv.getVino(linea));
             }
             br.close();
         } catch (Exception ignored){
@@ -45,7 +55,13 @@ public class Filing {
         }
     }
 
-    public static String ReadFile(File file, String fileName) {
+    /**
+     * METODO QUE LO UTILIZAREMOS PARA SETEAR EL TEXTO EN LAS LISTA
+     * @param file
+     * @param
+     * @return
+     */
+    public static String ReadFile(File file) {
         File f = new File(file, fileName);
         StringBuilder texto = new StringBuilder();
         try {
@@ -62,27 +78,46 @@ public class Filing {
         assert texto != null;
         return texto.toString();
     }
+
+    /**
+     * METODO PARA CHECKEAR LA ID
+     * @param id
+     * @param listaVinos
+     * @return
+     */
     public static  boolean checkId(long id , ArrayList<Vino> listaVinos){
         boolean ok=false;
-        long idtoCompare;
         if (listaVinos.size() > 0) {
-            for (int i = 0; i < listaVinos.size(); i++) {
-                 idtoCompare = listaVinos.get(i).getId();
-                if (idtoCompare == id)
+            for (Vino vino : listaVinos){
+                if (id == vino.getId()) {
                     ok = true;
+
+                }
             }
         }
         return ok;
 
     }
-    public static  void exChangeVinos(long id, Vino vinito){
+
+    /**
+     * Reescribe los vinos
+     * @param id
+     * @param vinito
+     */
+    public static  void exchangeTheWine(long id, Vino vinito){
         for (int i = 0; i < listaVinos.size(); i++) {
             if (listaVinos.get(i).getId() ==  id){
                 listaVinos.set(i, vinito);
             }
         }
     }
-    public static boolean borrado(long id){
+
+    /**
+     * Borra el vino
+     * @param id
+     * @return
+     */
+    public static boolean deleteTheWine(long id){
         for (int i = 0; i < listaVinos.size(); i++) {
             if (listaVinos.get(i).getId() ==  id){
                 listaVinos.remove(i);
@@ -93,19 +128,29 @@ public class Filing {
         return false;
     }
 
-    public static Vino buscaVino(long idLong){
+    /**
+     * Busca el vino
+     * @param idLong
+     * @return
+     */
+    public static Vino searchTheWine(long idLong){
         Vino v = new Vino();
         for (Vino vinillos: listaVinos){
-            long idToCompare;
-            idToCompare = vinillos.getId();
-            if(idToCompare == idLong){
+            if(vinillos.getId() == idLong){
                 v=vinillos;
             }
 
         }
         return  v;
     }
-    public static boolean rewriteFile(File file, String string) {
+
+    /**
+     * REESCRIBE EL ARCHIVO
+     * @param file
+     * @param string
+     * @return
+     */
+    public static boolean rewritetheFile(File file, String string) {
         File f = new File(file, fileName);
 
         boolean ok = true;

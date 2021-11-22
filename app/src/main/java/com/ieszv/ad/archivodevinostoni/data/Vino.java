@@ -1,6 +1,9 @@
 package com.ieszv.ad.archivodevinostoni.data;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
+import java.util.Objects;
 
 
 public class Vino implements Serializable {
@@ -83,6 +86,7 @@ public class Vino implements Serializable {
         this.fecha = fecha;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Vino{" +
@@ -96,36 +100,6 @@ public class Vino implements Serializable {
                 '}';
     }
 
-    /*@Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Vino vino = (Vino) o;
-        return fecha == vino.fecha && Objects.equals(nombre, vino.nombre) && Objects.equals(bodega, vino.bodega);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nombre, bodega, fecha);
-    }*/
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Vino vino = (Vino) o;
-        if (fecha != vino.fecha) return false;
-        if (nombre != null ? !nombre.equals(vino.nombre) : vino.nombre != null) return false;
-        return bodega != null ? bodega.equals(vino.bodega) : vino.bodega == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = nombre != null ? nombre.hashCode() : 0;
-        result = 31 * result + (bodega != null ? bodega.hashCode() : 0);
-        result = 31 * result + fecha;
-        return result;
-    }
 
     //equals - hashCode
     //Java: si dos objetos son iguales su hashCode tiene que ser igual

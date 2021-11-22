@@ -12,7 +12,7 @@ public class Csv {
             v = new Vino();
             try {
                 v.setId(Long.parseLong(atributos[0].trim()));
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException ignored) {
             }
             v.setNombre(atributos[1].trim());
             v.setBodega(atributos[2].trim());
@@ -20,11 +20,11 @@ public class Csv {
             v.setOrigen(atributos[4].trim());
             try {
                 v.setGraduacion(Double.parseDouble(atributos[5].trim()));
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException ignored) {
             }
             try {
                 v.setFecha(Integer.parseInt(atributos[6].trim()));
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException ignored) {
             }
         }
         return v;
