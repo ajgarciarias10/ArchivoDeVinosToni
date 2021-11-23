@@ -69,7 +69,7 @@ public class Adding extends AppCompatActivity {
         }catch (NumberFormatException ignored){
 
         }
-        if(Filing.checkId(id,listaVinos)){
+        if(!Filing.checkId(id,listaVinos)){
             Vino v = new Vino(id, nombre, bodega, color, origen,graduacion , fecha);
             String text = Csv.getCsv(v);
             Filing.writeFile(getFilesDir(), text);

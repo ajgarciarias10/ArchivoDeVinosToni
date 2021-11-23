@@ -58,6 +58,8 @@ public class Edit extends AppCompatActivity {
         editTextOrigen = findViewById(R.id.et_OrigenEdit);
         editTextGraduacion = findViewById(R.id.et_GraduacionEdit);
         editTextFecha  = findViewById(R.id.et_FechaEdit);
+        bt_rewrite = findViewById(R.id.bt_Rewrite);
+        bt_delete = findViewById(R.id.bt_Delete);
 
     }
 
@@ -71,7 +73,7 @@ public class Edit extends AppCompatActivity {
         editTextColor.setText(vino.getColor());
         editTextOrigen.setText(vino.getOrigen());
         editTextGraduacion.setText(String.valueOf(vino.getGraduacion()));
-        editTextFecha.setText(vino.getFecha());
+        editTextFecha.setText(String.valueOf(vino.getFecha()));
     }
 
 

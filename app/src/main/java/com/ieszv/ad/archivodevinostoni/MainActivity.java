@@ -37,10 +37,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initialize();
         setTheList();//Ponemos en pantalla el campo de texto
-        long id;
+        long id = 0;
+        et_id= findViewById(R.id.et_id);
         try {
             id = Long.parseLong(et_id.getText().toString());
-        }catch (NumberFormatException ignored){
+        }catch (NumberFormatException e){
 
         }
 
@@ -58,11 +59,12 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Evento OnClick del boton editar
          */
+        long finalId = id;
         bt_edit.setOnClickListener(v -> {
-            if ((Filing.checkId(id, listaVinos))) {
+            if ((!Filing.checkId(finalId, listaVinos))) {
                 Intent intencion = new Intent(MainActivity.this, Edit.class);
                 Bundle bn = new Bundle();
-                bn.putLong("id", id);
+                bn.putLong("id", finalId);
                 intencion.putExtras(bn); // lo manda con el put extras
                 startActivity(intencion);
             } else {
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     private void initialize() {
         bt_add = findViewById(R.id.bt_add);
         bt_edit = findViewById(R.id.bt_edit);
-        et_id= findViewById(R.id.et_id);
+
         tv_lista = findViewById(R.id.tv_Lista);
     }
     public void setTheList(){
