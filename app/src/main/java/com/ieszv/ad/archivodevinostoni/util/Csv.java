@@ -11,7 +11,7 @@ public class Csv {
         if(atributos.length >= 7) {
             v = new Vino();
             try {
-                v.setId(Long.parseLong(atributos[0].trim()));
+                v.setId(Integer.parseInt(atributos[0].trim()));
             } catch (NumberFormatException ignored) {
             }
             v.setNombre(atributos[1].trim());
@@ -31,12 +31,12 @@ public class Csv {
     }
 
     public static String getCsv(Vino v) {
-        return v.getId() + "; " +
-                v.getNombre() + "; " +
-                v.getBodega() + "; " +
-                v.getColor() + "; " +
-                v.getOrigen() + "; " +
-                v.getGraduacion() + "; " +
-                v.getFecha() + "\n";
+        return v.getId() + ";" +
+                v.getNombre() + ";" +
+                v.getBodega() + ";" +
+                v.getColor() + ";" +
+                v.getOrigen() + ";" +
+                v.getGraduacion() + ";" +
+                v.getFecha() + ";";
     }
 }

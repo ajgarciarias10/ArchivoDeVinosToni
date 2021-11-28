@@ -31,4 +31,5 @@
     <string name="filename">vino.csv</string>
     <string name="tv_fecha">Fecha</string>
     <string name="bt_delete">DELETE</string>
+    <string name ="arhivo">vinos.csv</string>
 </resources>

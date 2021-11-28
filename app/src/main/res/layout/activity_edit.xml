@@ -8,76 +8,84 @@
     <TextView
         android:id="@+id/tv_idEdit"
         style="@style/estilitoPato"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="16dp"
         android:text="@string/tv_id"
+        app:layout_constraintBottom_toTopOf="@+id/tv_nombreEdit"
+        app:layout_constraintEnd_toStartOf="@+id/et_idEdit"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_nombreEdit"
         style="@style/estilitoPato"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="27dp"
         android:text="@string/tv_nombre"
+        app:layout_constraintBottom_toTopOf="@+id/tv_BodegaEdit"
+        app:layout_constraintEnd_toStartOf="@+id/et_NombreEdit"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_idEdit" />
 
     <TextView
         android:id="@+id/tv_BodegaEdit"
         style="@style/estilitoPato"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:text="@string/et_bodega"
-        app:layout_constraintStart_toStartOf="@+id/tv_nombreEdit"
+        app:layout_constraintBottom_toTopOf="@+id/tv_ColorEdit"
+        app:layout_constraintEnd_toStartOf="@+id/et_BodegaEdit"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_nombreEdit" />
 
     <TextView
         android:id="@+id/tv_ColorEdit"
         style="@style/estilitoPato"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="32dp"
         android:text="@string/tv_color"
+        app:layout_constraintBottom_toTopOf="@+id/tv_FechaEdit"
+        app:layout_constraintEnd_toStartOf="@+id/et_ColorEdit"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_BodegaEdit" />
 
     <TextView
         android:id="@+id/tv_OrigenEdit"
         style="@style/estilitoPato"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="31dp"
         android:text="@string/tv_origen"
+        app:layout_constraintBottom_toTopOf="@+id/bt_Rewrite"
+        app:layout_constraintEnd_toStartOf="@+id/et_OrigenEdit"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_GraduacionEdit" />
 
     <TextView
         android:id="@+id/tv_GraduacionEdit"
         style="@style/estilitoPato"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
         android:text="@string/tv_graduacion"
-        app:layout_constraintEnd_toEndOf="@+id/tv_FechaEdit"
-        app:layout_constraintStart_toEndOf="@+id/tv_FechaEdit"
+        app:layout_constraintBottom_toTopOf="@+id/tv_OrigenEdit"
+        app:layout_constraintEnd_toStartOf="@+id/et_GraduacionEdit"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_FechaEdit" />
 
     <TextView
         android:id="@+id/tv_FechaEdit"
         style="@style/estilitoPato"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="20dp"
         android:text="@string/tv_fecha"
+        app:layout_constraintBottom_toTopOf="@+id/tv_GraduacionEdit"
+        app:layout_constraintEnd_toStartOf="@+id/et_FechaEdit"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_ColorEdit" />
 
@@ -86,14 +94,16 @@
         style="@style/estilitoPato.editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="27dp"
-        android:editable="false"
+        android:editable="true"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="number|textPersonName"
         android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/et_NombreEdit"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_idEdit"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.49"
+        app:layout_constraintVertical_chainStyle="spread"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
@@ -101,12 +111,13 @@
         style="@style/estilitoPato.editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="3dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/et_BodegaEdit"
-        app:layout_constraintEnd_toEndOf="@+id/et_BodegaEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_nombreEdit"
+        app:layout_constraintTop_toBottomOf="@+id/et_idEdit"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
@@ -114,15 +125,13 @@
         style="@style/estilitoPato.editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="50dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_ColorEdit"
+        app:layout_constraintBottom_toTopOf="@+id/et_ColorEdit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_nombreEdit"
+        app:layout_constraintStart_toEndOf="@+id/tv_BodegaEdit"
+        app:layout_constraintTop_toBottomOf="@+id/et_NombreEdit"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
@@ -130,11 +139,12 @@
         style="@style/estilitoPato.editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="@+id/et_FechaEdit"
+        app:layout_constraintBottom_toTopOf="@+id/et_FechaEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_ColorEdit"
         app:layout_constraintTop_toBottomOf="@+id/et_BodegaEdit"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -143,12 +153,14 @@
         style="@style/estilitoPato.editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="@+id/et_GraduacionEdit"
+        app:layout_constraintBottom_toTopOf="@+id/bt_Delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_OrigenEdit"
         app:layout_constraintTop_toBottomOf="@+id/et_GraduacionEdit"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
@@ -156,11 +168,12 @@
         style="@style/estilitoPato.editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="@+id/et_FechaEdit"
+        app:layout_constraintBottom_toTopOf="@+id/et_OrigenEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_GraduacionEdit"
         app:layout_constraintTop_toBottomOf="@+id/et_FechaEdit"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -169,32 +182,34 @@
         style="@style/estilitoPato.editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="28dp"
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/et_GraduacionEdit"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_FechaEdit"
         app:layout_constraintTop_toBottomOf="@+id/et_ColorEdit"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+        tools:ignore="DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/bt_Rewrite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="97dp"
         android:text="@string/bt_add"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="554dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bt_Delete"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/bt_Delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="83dp"
         android:text="@string/bt_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="554dp" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bt_Rewrite" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

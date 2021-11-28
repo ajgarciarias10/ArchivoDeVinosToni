@@ -1,16 +1,25 @@
 package com.ieszv.ad.archivodevinostoni;
+import static com.ieszv.ad.archivodevinostoni.FileIO.isFileCreated;
+import static com.ieszv.ad.archivodevinostoni.FileIO.listaVinos;
+import static com.ieszv.ad.archivodevinostoni.FileIO.readFile;
+import static com.ieszv.ad.archivodevinostoni.FileIO.writeFile;
+import static com.ieszv.ad.archivodevinostoni.FileIO.writeFileEmpty;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.ieszv.ad.archivodevinostoni.data.Vino;
+import com.ieszv.ad.archivodevinostoni.util.Csv;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 
@@ -20,13 +29,11 @@ public class MainActivity extends AppCompatActivity {
      *
      *
      */
+    private String fileName;
     Button bt_add;
     Button bt_edit;
-    EditText et_id;
+    EditText et_idLong;
     TextView tv_lista;
-    public static String fileName="vino.csv";
-    public static ArrayList<Vino> listaVinos = new ArrayList<>();
-
     /**
      * Metodo OnCreate
      * @param savedInstanceState
@@ -36,57 +43,79 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initialize();
-        setTheList();//Ponemos en pantalla el campo de texto
-        long id = 0;
-        et_id= findViewById(R.id.et_id);
-        try {
-            id = Long.parseLong(et_id.getText().toString());
-        }catch (NumberFormatException e){
+    }
 
+
+    private void initialize() {
+        fileName = getString(R.string.arhivo);
+        bt_add = findViewById(R.id.bt_add);
+        bt_edit = findViewById(R.id.bt_edit);
+        tv_lista = findViewById(R.id.tv_Lista);
+        et_idLong = findViewById(R.id.et_id);
+        //We check if the file is created
+        if(!isFileCreated(getFilesDir(),fileName)){
+            writeFileEmpty(getFilesDir(),fileName);
         }
-
-
-
+        else {
+            isFileCreated(getFilesDir(),fileName);//Metemos el archivo en un arraylist
+        }
         /**
          * Evento OnClick del boton añadir
          */
         bt_add.setOnClickListener(v -> {
-            Intent intencion = new Intent(MainActivity.this, Adding.class);
-            startActivity(intencion);
-
+                openAdding();
         });
+
 
         /**
          * Evento OnClick del boton editar
          */
-        long finalId = id;
         bt_edit.setOnClickListener(v -> {
-            if ((!Filing.checkId(finalId, listaVinos))) {
-                Intent intencion = new Intent(MainActivity.this, Edit.class);
-                Bundle bn = new Bundle();
-                bn.putLong("id", finalId);
-                intencion.putExtras(bn); // lo manda con el put extras
-                startActivity(intencion);
-            } else {
-                Snackbar.make(v, "Error,este id no existe", Snackbar.LENGTH_SHORT).show();
+            boolean checking = checkIDAdd((Long.parseLong(et_idLong.getText().toString().trim())));
+            if(checking){
+               openEdit();
+
+            }else{
+                et_idLong.setText("Error this id is not created");
             }
         });
+        tv_lista.setText(readFile(getFilesDir(),fileName));
     }
 
-    private void initialize() {
-        bt_add = findViewById(R.id.bt_add);
-        bt_edit = findViewById(R.id.bt_edit);
-
-        tv_lista = findViewById(R.id.tv_Lista);
-    }
-    public void setTheList(){
-        tv_lista.setText(Filing.ReadFile(getFilesDir()));
+    @Override
+    protected void onRestart() {
+        tv_lista.setText(readFile(getFilesDir(),fileName));
+        super.onRestart();
     }
 
+    private void openAdding() {
+        Intent intent = new Intent(this, Adding.class);
+        startActivity(intent);
+    }
+    private void openEdit() {
+        Intent intent = new Intent(this, Edit.class);
+        intent.putExtra("id",et_idLong.getText().toString());
+        startActivity(intent);
+    }
+
+    public  boolean checkIDAdd(long id){
+        boolean x = false;
+        if (listaVinos.size() > 0) {
+            for (int i = 0; i < listaVinos.size(); i++) {
+                if(listaVinos.get(i) != null){
+                    if(listaVinos.get(i).getClass().getSimpleName().equals("Vino")){
+                        Long idToCompare = listaVinos.get(i).getId();
+                        if (idToCompare.equals(id)) {
+                            x = true;
+                        }
+                    }
+                }
 
 
-
-
+            }
+        }
+        return x;
+    }
 
 
 
