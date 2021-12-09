@@ -1,20 +1,15 @@
 package com.ieszv.ad.archivodevinostoni;
-import static com.ieszv.ad.archivodevinostoni.FileIO.deleteWine;
-import static com.ieszv.ad.archivodevinostoni.FileIO.listaVinos;
-import static com.ieszv.ad.archivodevinostoni.FileIO.reWriteWine;
-import static com.ieszv.ad.archivodevinostoni.FileIO.readFile;
-import static com.ieszv.ad.archivodevinostoni.FileIO.searchWine;
+import static com.ieszv.ad.archivodevinostoni.Filing.deleteWine;
+import static com.ieszv.ad.archivodevinostoni.Filing.isFileWritten;
+import static com.ieszv.ad.archivodevinostoni.Filing.reWriteWine;
+import static com.ieszv.ad.archivodevinostoni.Filing.readFile;
+import static com.ieszv.ad.archivodevinostoni.Filing.searchWine;
 
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import com.ieszv.ad.archivodevinostoni.data.Vino;
-import com.ieszv.ad.archivodevinostoni.util.Csv;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 
 public class Edit extends AppCompatActivity {
@@ -52,7 +47,7 @@ public class Edit extends AppCompatActivity {
                             editTextColor.getText().toString(),Double.parseDouble(editTextGraduacion.getText().toString()),Integer.parseInt(editTextFecha.getText().toString()));
 
             reWriteWine(Integer.parseInt(idText),wine);
-            if(writeFile()){
+            if(isFileWritten(getFilesDir(),fileName)){
                 finish();
             }
 
@@ -61,7 +56,7 @@ public class Edit extends AppCompatActivity {
         bt_delete = findViewById(R.id.bt_Delete);
         bt_delete.setOnClickListener(v -> {
             deleteWine(Integer.parseInt(editTextId.getText().toString()));
-            if(writeFile()){
+            if(isFileWritten(getFilesDir(),fileName)){
                 finish();
             }
 
@@ -89,30 +84,7 @@ public class Edit extends AppCompatActivity {
         editTextGraduacion.setText(String.valueOf(wine.getGraduacion()));
         editTextFecha.setText(String.valueOf(wine.getFecha()));
     }
-    public boolean writeFile(){
-        File f = new File(getFilesDir(), fileName);
-        boolean ok = true;
-        if (f.exists()) {
-            f.delete();
-            f = new File(getFilesDir(), fileName);
-            FileWriter fw = null; //FileWriter(File f,boolean append)
-            String vcsv;
-            for (int i = 0; i < listaVinos.size(); i++) {
-                if (listaVinos.get(i).getId() != 0){
-                    vcsv = Csv.getCsv(listaVinos.get(i));
-                    try {
-                        fw = new FileWriter(f, true);
-                        fw.write( vcsv + "\n");
-                        fw.flush();
-                        fw.close();
-                    } catch (IOException e) {
-                        ok = false;
-                    }
-                }
-            }
-        }
-        return ok;
-    }
+
 
 
 

@@ -10,7 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class FileIO {
+public class Filing {
     public static ArrayList<Vino> listaVinos = new ArrayList<>();
 
 
@@ -28,7 +28,6 @@ public class FileIO {
         }
         return ok;
     }
-
 
 
 
@@ -64,16 +63,7 @@ public class FileIO {
         }
         return readok;
     }
-    public static void writeFileEmpty(File file, String filename){
-        File f = new File(file, filename);
-        FileWriter fw = null; //FileWriter(File f,boolean append)
-        try {
-            fw = new FileWriter(f, true);
-            fw.write("");
-            fw.flush();
-            fw.close();
-        } catch (IOException e) {}
-    }
+
 
 
     public static Vino searchWine(int id){
@@ -101,6 +91,48 @@ public class FileIO {
             if (listaVinos.get(i).getId() == (long) id){
                 listaVinos.remove(i);
                 ok = true;
+            }
+        }
+        return ok;
+    }
+    public static boolean checkIDAdd(long id){
+        boolean x = false;
+        if (listaVinos.size() > 0) {
+            for (int i = 0; i < listaVinos.size(); i++) {
+                if(listaVinos.get(i) != null){
+                    if(listaVinos.get(i).getClass().getSimpleName().equals("Vino")){
+                        Long idToCompare = listaVinos.get(i).getId();
+                        if (idToCompare.equals(id)) {
+                            x = true;
+                        }
+                    }
+                }
+
+
+            }
+        }
+        return x;
+    }
+    public  static  boolean isFileWritten(File file , String fileName){
+        File f = new File(file, fileName);
+        boolean ok = true;
+        if (f.exists()) {
+            f.delete();
+            f = new File(file, fileName);
+            FileWriter fw = null; //FileWriter(File f,boolean append)
+            String vcsv;
+            for (int i = 0; i < listaVinos.size(); i++) {
+                if (listaVinos.get(i).getId() != 0){
+                    vcsv = Csv.getCsv(listaVinos.get(i));
+                    try {
+                        fw = new FileWriter(f, true);
+                        fw.write( vcsv + "\n");
+                        fw.flush();
+                        fw.close();
+                    } catch (IOException e) {
+                        ok = false;
+                    }
+                }
             }
         }
         return ok;

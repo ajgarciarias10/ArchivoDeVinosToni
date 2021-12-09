@@ -1,17 +1,15 @@
 
 package com.ieszv.ad.archivodevinostoni;
 
-import static com.ieszv.ad.archivodevinostoni.FileIO.listaVinos;
+import static com.ieszv.ad.archivodevinostoni.Filing.checkIDAdd;
+import static com.ieszv.ad.archivodevinostoni.Filing.listaVinos;
 import static com.ieszv.ad.archivodevinostoni.R.id.et_GraduacionAdd;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ieszv.ad.archivodevinostoni.data.Vino;
@@ -20,7 +18,6 @@ import com.ieszv.ad.archivodevinostoni.util.Csv;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.ArrayList;
 
 public class Adding extends AppCompatActivity {
     Button btadd;
@@ -67,7 +64,7 @@ public class Adding extends AppCompatActivity {
                 //UTILIZAMOS EL METODO CSV que coje todos los campos de los getWines los separe por ; y lo escriba asi en el archivo
                 String winetoCsv = Csv.getCsv(wine2);
                 listaVinos.add(wine2);
-                FileIO.writeFile(getFilesDir(),fileName,winetoCsv);
+                Filing.writeFile(getFilesDir(),fileName,winetoCsv);
 
                 finish();
             }else{
@@ -93,24 +90,7 @@ public class Adding extends AppCompatActivity {
         }
         return readok;
     }
-    public  boolean checkIDAdd(long id){
-        boolean x = false;
-        if (listaVinos.size() > 0) {
-            for (int i = 0; i < listaVinos.size(); i++) {
-                if(listaVinos.get(i) != null){
-                    if(listaVinos.get(i).getClass().getSimpleName().equals("Vino")){
-                        Long idToCompare = listaVinos.get(i).getId();
-                        if (idToCompare.equals(id)) {
-                            x = true;
-                        }
-                    }
-                }
 
-
-            }
-        }
-        return x;
-    }
 }
 
 

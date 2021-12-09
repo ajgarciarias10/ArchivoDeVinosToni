@@ -1,26 +1,20 @@
 package com.ieszv.ad.archivodevinostoni;
-import static com.ieszv.ad.archivodevinostoni.FileIO.isFileCreated;
-import static com.ieszv.ad.archivodevinostoni.FileIO.listaVinos;
-import static com.ieszv.ad.archivodevinostoni.FileIO.readFile;
-import static com.ieszv.ad.archivodevinostoni.FileIO.writeFile;
-import static com.ieszv.ad.archivodevinostoni.FileIO.writeFileEmpty;
+import static com.ieszv.ad.archivodevinostoni.Filing.checkIDAdd;
+import static com.ieszv.ad.archivodevinostoni.Filing.isFileCreated;
+import static com.ieszv.ad.archivodevinostoni.Filing.listaVinos;
+import static com.ieszv.ad.archivodevinostoni.Filing.readFile;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.ieszv.ad.archivodevinostoni.data.Vino;
-import com.ieszv.ad.archivodevinostoni.util.Csv;
-
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.util.ArrayList;
+import java.io.IOException;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -52,12 +46,19 @@ public class MainActivity extends AppCompatActivity {
         bt_edit = findViewById(R.id.bt_edit);
         tv_lista = findViewById(R.id.tv_Lista);
         et_idLong = findViewById(R.id.et_id);
+        tv_lista.setText(readFile(getFilesDir(),fileName));
         //We check if the file is created
         if(!isFileCreated(getFilesDir(),fileName)){
-            writeFileEmpty(getFilesDir(),fileName);
+               File  file =  new File(getFilesDir(),fileName);
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         else {
             isFileCreated(getFilesDir(),fileName);//Metemos el archivo en un arraylist
+
         }
         /**
          * Evento OnClick del boton añadir
@@ -65,21 +66,28 @@ public class MainActivity extends AppCompatActivity {
         bt_add.setOnClickListener(v -> {
                 openAdding();
         });
+        if(readFile(getFilesDir(),fileName).isEmpty()){
+            bt_edit.setEnabled(false);
+        }
+        else{
+            bt_edit.setEnabled(true);
+        }
 
+            /**
+             * Evento OnClick del boton editar
+             */
+            bt_edit.setOnClickListener(v -> {
 
-        /**
-         * Evento OnClick del boton editar
-         */
-        bt_edit.setOnClickListener(v -> {
-            boolean checking = checkIDAdd((Long.parseLong(et_idLong.getText().toString().trim())));
-            if(checking){
-               openEdit();
+                 boolean checking = checkIDAdd((Long.parseLong(et_idLong.getText().toString().trim())));
+                 if(checking){
+                     openEdit();
 
-            }else{
-                et_idLong.setText("Error this id is not created");
-            }
-        });
-        tv_lista.setText(readFile(getFilesDir(),fileName));
+                 }else{
+                     et_idLong.setText("Error this id is not created");
+                 }
+
+            });
+
     }
 
     @Override
@@ -87,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
         tv_lista.setText(readFile(getFilesDir(),fileName));
         super.onRestart();
     }
+
+
 
     private void openAdding() {
         Intent intent = new Intent(this, Adding.class);
@@ -98,24 +108,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public  boolean checkIDAdd(long id){
-        boolean x = false;
-        if (listaVinos.size() > 0) {
-            for (int i = 0; i < listaVinos.size(); i++) {
-                if(listaVinos.get(i) != null){
-                    if(listaVinos.get(i).getClass().getSimpleName().equals("Vino")){
-                        Long idToCompare = listaVinos.get(i).getId();
-                        if (idToCompare.equals(id)) {
-                            x = true;
-                        }
-                    }
-                }
 
-
-            }
-        }
-        return x;
-    }
 
 
 
