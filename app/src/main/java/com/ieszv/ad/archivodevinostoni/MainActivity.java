@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void initialize() {
+
         fileName = getString(R.string.arhivo);
         bt_add = findViewById(R.id.bt_add);
         bt_edit = findViewById(R.id.bt_edit);
@@ -49,14 +50,15 @@ public class MainActivity extends AppCompatActivity {
         tv_lista.setText(readFile(getFilesDir(),fileName));
         //We check if the file is created
         if(!isFileCreated(getFilesDir(),fileName)){
-               File  file =  new File(getFilesDir(),fileName);
+
             try {
+                File  file =  new File(getFilesDir(),fileName);
                 file.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        else {
+       else {
             isFileCreated(getFilesDir(),fileName);//Metemos el archivo en un arraylist
 
         }
@@ -66,12 +68,16 @@ public class MainActivity extends AppCompatActivity {
         bt_add.setOnClickListener(v -> {
                 openAdding();
         });
-        if(readFile(getFilesDir(),fileName).isEmpty()){
+     //  if(readFile(getFilesDir(),fileName).isEmpty()){
+        if(listaVinos.toString().isEmpty()){
             bt_edit.setEnabled(false);
-        }
-        else{
+        }else{
             bt_edit.setEnabled(true);
         }
+
+
+
+
 
             /**
              * Evento OnClick del boton editar

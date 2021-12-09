@@ -33,6 +33,7 @@ public class Edit extends AppCompatActivity {
         String idText = bundle.getString("id");
        // Este intent es el que me ha llamado, entonces me da la informacion de la actividad q me ha llamado.
         editTextId = findViewById(R.id.et_idEdit);
+        editTextId.setEnabled(false);
         editTextNombre = findViewById(R.id.et_NombreEdit);
         editTextBodega = findViewById(R.id.et_BodegaEdit);
         editTextColor = findViewById(R.id.et_ColorEdit);
