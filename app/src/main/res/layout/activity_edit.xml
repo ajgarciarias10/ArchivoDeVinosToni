@@ -196,7 +196,7 @@
         android:id="@+id/bt_Rewrite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/bt_add"
+        android:text="@string/bt_edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bt_Delete"
         app:layout_constraintHorizontal_bias="0.5"

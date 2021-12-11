@@ -3,6 +3,7 @@ import static com.ieszv.ad.archivodevinostoni.Filing.checkIDAdd;
 import static com.ieszv.ad.archivodevinostoni.Filing.isFileCreated;
 import static com.ieszv.ad.archivodevinostoni.Filing.listaVinos;
 import static com.ieszv.ad.archivodevinostoni.Filing.readFile;
+import static com.ieszv.ad.archivodevinostoni.Filing.readFileBooleano;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -80,24 +81,22 @@ public class MainActivity extends AppCompatActivity {
          * Evento OnClick del boton editar
          */
         bt_edit.setOnClickListener(v -> {
-            if(readFile(getFilesDir(),fileName).isEmpty()){
-                bt_edit.setEnabled(false);
-            }else{
-                bt_edit.setEnabled(true);
+
                 if(!et_idLong.getText().toString().isEmpty()){
                     boolean checking = checkIDAdd((Long.parseLong(et_idLong.getText().toString().trim())));
                     if(checking){
                         openEdit();
+                        et_idLong.setText("");
 
                     }else{
-                        et_idLong.setText("Error this id is not created");
+                        et_idLong.setError("Error this id is not created");
                     }
                 }
                 else{
                     et_idLong.setError("ERROR NO HAS METIDO NINGUN ID");
                 }
 
-            }
+
 
         });
 
@@ -106,14 +105,30 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         tv_lista.setText(readFile(getFilesDir(),fileName));
+       // readFileBooleano(getFilesDir(),fileName);
         super.onRestart();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+       // readFileBooleano(getFilesDir(),fileName);
+        super.onDestroy();
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        bt_edit.setEnabled(true);
+        //if(readFile(getFilesDir(),fileName).isEmpty() || readFile(getFilesDir(),fileName) == null){
+        if(listaVinos.isEmpty() || listaVinos ==null ){
+            bt_edit.setEnabled(false);
+            et_idLong.setEnabled(false);
+        }else {
+            bt_edit.setEnabled(true);
+            et_idLong.setEnabled(true);
+        }
+        et_idLong.setText("");
     }
 
     private void openAdding() {
