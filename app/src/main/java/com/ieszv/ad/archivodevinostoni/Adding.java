@@ -65,7 +65,6 @@ public class Adding extends AppCompatActivity {
                 String winetoCsv = Csv.getCsv(wine2);
                 listaVinos.add(wine2);
                 Filing.writeFile(getFilesDir(),fileName,winetoCsv);
-                notifyAll();
                 finish();
             }else{
                 textoId.setError("This id exists");
