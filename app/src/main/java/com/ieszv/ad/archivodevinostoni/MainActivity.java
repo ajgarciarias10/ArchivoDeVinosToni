@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-       else {
+        else {
             isFileCreated(getFilesDir(),fileName);//Metemos el archivo en un arraylist
 
         }
@@ -66,33 +68,38 @@ public class MainActivity extends AppCompatActivity {
          * Evento OnClick del boton añadir
          */
         bt_add.setOnClickListener(v -> {
-                openAdding();
+            openAdding();
         });
-     //  if(readFile(getFilesDir(),fileName).isEmpty()){
-        if(listaVinos.toString().isEmpty()){
-            bt_edit.setEnabled(false);
-        }else{
-            bt_edit.setEnabled(true);
-        }
 
 
 
 
 
-            /**
-             * Evento OnClick del boton editar
-             */
-            bt_edit.setOnClickListener(v -> {
 
-                 boolean checking = checkIDAdd((Long.parseLong(et_idLong.getText().toString().trim())));
-                 if(checking){
-                     openEdit();
+        /**
+         * Evento OnClick del boton editar
+         */
+        bt_edit.setOnClickListener(v -> {
+            if(readFile(getFilesDir(),fileName).isEmpty()){
+                bt_edit.setEnabled(false);
+            }else{
+                bt_edit.setEnabled(true);
+                if(!et_idLong.getText().toString().isEmpty()){
+                    boolean checking = checkIDAdd((Long.parseLong(et_idLong.getText().toString().trim())));
+                    if(checking){
+                        openEdit();
 
-                 }else{
-                     et_idLong.setText("Error this id is not created");
-                 }
+                    }else{
+                        et_idLong.setText("Error this id is not created");
+                    }
+                }
+                else{
+                    et_idLong.setError("ERROR NO HAS METIDO NINGUN ID");
+                }
 
-            });
+            }
+
+        });
 
     }
 
@@ -100,9 +107,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         tv_lista.setText(readFile(getFilesDir(),fileName));
         super.onRestart();
+
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        bt_edit.setEnabled(true);
+    }
 
     private void openAdding() {
         Intent intent = new Intent(this, Adding.class);
