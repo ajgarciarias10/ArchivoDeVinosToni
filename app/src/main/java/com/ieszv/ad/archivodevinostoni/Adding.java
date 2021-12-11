@@ -3,6 +3,7 @@ package com.ieszv.ad.archivodevinostoni;
 
 import static com.ieszv.ad.archivodevinostoni.Filing.checkIDAdd;
 import static com.ieszv.ad.archivodevinostoni.Filing.listaVinos;
+import static com.ieszv.ad.archivodevinostoni.Filing.readFileBooleano;
 import static com.ieszv.ad.archivodevinostoni.R.id.et_GraduacionAdd;
 
 import android.os.Bundle;
@@ -47,7 +48,7 @@ public class Adding extends AppCompatActivity {
         //SACAMOS CON EL METODO GET STRING EL NOMBRE DEL ARCHIVO DE LA CLASE STRINGS.XML
         fileName = getString(R.string.arhivo);
 
-        readFile();
+        readFileBooleano(getFilesDir(),fileName);
 
         btadd.setOnClickListener((View v) ->{
 
@@ -74,21 +75,7 @@ public class Adding extends AppCompatActivity {
 
     }
 
-    public boolean readFile(){
-        File f = new File(getFilesDir(), fileName);
-        boolean readok = true;
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(f));
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                listaVinos.add((Vino) Csv.getVino(linea));
-            }
-            br.close();
-        } catch (Exception e){
-            readok = false;
-        }
-        return readok;
-    }
+
 
 }
 

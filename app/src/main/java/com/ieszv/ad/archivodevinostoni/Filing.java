@@ -28,6 +28,21 @@ public class Filing {
         }
         return ok;
     }
+    public static  boolean readFileBooleano(File file,String fileName){
+        File f = new File(file, fileName);
+        boolean readok = true;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(f));
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                listaVinos.add((Vino) Csv.getVino(linea));
+            }
+            br.close();
+        } catch (Exception e){
+            readok = false;
+        }
+        return readok;
+    }
 
 
 
